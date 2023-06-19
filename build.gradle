@@ -1,0 +1,25 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.12'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' //html 만들어주는 엔진
+	implementation 'org.springframework.boot:spring-boot-starter-web' //스프링 web에 관련된 의존된 라이브 러리를 떙겨온다
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc' //자바는 db랑 붙을떄 jdbc가 필요하다
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // test 라이브러리
+}
+tasks.named('test') {
+	useJUnitPlatform()
+}
